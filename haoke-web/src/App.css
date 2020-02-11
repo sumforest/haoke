@@ -1,0 +1,15 @@
+html,body {
+  height: 100%;
+  touch-action: none; 
+}
+.App {
+  text-align: center;
+}
+#root {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+

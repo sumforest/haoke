@@ -1,0 +1,73 @@
+.chat-window-title {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  padding-top: 3px;
+  background-color: #D4E0EE;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+.chat-window-content {
+  position: absolute;
+  top: 40px;
+  bottom: 126px;
+  width: 100%;
+  overflow-y: auto;
+}
+.chat-window-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chat-window-content ul li {
+  min-height: 60px;
+  clear: both;
+}
+.chat-window-content ul li img {
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+  padding-left: 5px;
+  vertical-align : top; 
+  float: left;
+}
+.chat-window-content ul li span {
+  display: inline-block;
+  font-size: 20px;
+  background-color: #fff;
+  padding: 5px 10px;
+  margin: 10px 60px 0 10px;
+  width: 65%;
+  min-height: 50px;
+  float: left;
+  box-sizing: border-box;
+  word-break: break-all; 
+  word-wrap:break-word;
+}
+.chat-window-content ul li.chat-info-right img {
+  float: right;
+  padding-right: 5px;
+}
+.chat-window-content ul li.chat-info-right span {
+  float: right;
+  margin: 10px 6px 0 60px;
+}
+.chat-window-input {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #21B97A;
+  min-height: 60px;
+  text-align: right;
+  padding: 5px;
+}
+.chat-ret-btn {
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+.ui.form textarea {
+  margin-bottom: 5px;
+}

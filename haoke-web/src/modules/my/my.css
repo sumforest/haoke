@@ -1,0 +1,93 @@
+.my-container{
+  overflow-y: auto;
+  height: 100%;
+}
+.my-title {
+  min-height: 300px;
+  position: relative;
+}
+.my-title img {
+  width: 100%;
+}
+.my-title .info {
+  position: absolute;
+  background: #fff;
+  width: 60%;
+  height: 65%;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 2px 2px 3px #787d82;
+  margin: 50px auto 0;
+  padding: 0 20px;
+  padding-top: 0;
+  text-align: center;
+}
+.my-title .myicon {
+  position: relative;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  max-width: 90px;
+  max-height: 90px;
+  border: solid 5px #f5f5f5;
+  display: inline-block;
+  box-shadow: 0px 2px 2px #bdbdbd;
+}
+.my-title .myicon img {
+  border-radius: 50%;
+}
+.my-title .name {
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
+.my-title .edit {
+  color: #787d82;
+  margin-top: 20px;
+}
+.my-menu.ui.grid>.row>.column {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #808589;
+}
+.my-menu.ui.grid>.row>.column div {
+  margin-top: 5px;
+}
+.my-ad {
+  text-align: center;
+  margin-top: 10px;
+}
+.my-ad img {
+  width: 85%;
+}
+.my-container::-webkit-scrollbar{
+  width: 3px;
+}
+.my-container::-webkit-scrollbar-thumb{
+  background-color: #CBDAEA;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+  min-height: 2rem;
+  background-clip: padding-box;
+  border-radius: 5px;
+}
+.my-container::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+.my-container::-webkit-scrollbar-track-piece {
+  height: 30px;
+}
+.ui.modal>.actions {
+  text-align: center;
+}
+.ui.modal>.content {
+  text-align: center;
+}
+.ui.modal>.content .avatar-zoom {
+  color: #000;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: text-bottom;
+  padding-bottom: 2px;
+  font-size: 18px;
+}

@@ -1,0 +1,46 @@
+.flex-container {
+  padding: 0 1px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.placeholder {
+  // background-color: #DAE5F0;
+  color: #bbb;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  width: 100%;
+  z-index: 9999;
+}
+.placeholder i {
+  display: block;
+  height: 45px;
+  line-height: 45px;
+}
+.placeholder div {
+  height: 15px;
+  line-height: 10px;
+}
+.am-flexbox .am-flexbox-item  {
+  margin-left: 2px;
+}
+.main-content {
+  // background-color: yellow;
+  position: absolute;
+  // overflow-y: auto;
+  width: 100%;
+  top: 0;
+  bottom: 60px;
+}
+.iconfont {
+  font-size: 24px;
+}
+.active {
+  color: orange;
+}
+.ui.grid>.row {
+  padding-top: 0;
+  padding-bottom: 0;
+}

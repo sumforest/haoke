@@ -1,0 +1,20 @@
+.login-container {
+  height: 100%;
+  background-color: lightgreen;
+}
+.login-container .login-title {
+  line-height: 50px;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  height: 50px;
+  background-color: #21B97A;
+}
+.login-container .login-form {
+  margin: 20px 10px;
+  text-align: center;
+}
+.login-container .login-form button {
+  width: 100%;
+}
+

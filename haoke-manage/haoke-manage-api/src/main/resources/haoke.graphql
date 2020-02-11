@@ -1,0 +1,45 @@
+schema{
+    query: HaokeQuery
+}
+type HaokeQuery{
+    HouseResources(id:Long):HouseResources
+    HouseResourcesList(page:Int,pageSize:Int):TableResult
+}
+
+type HouseResources{
+    id:Long!
+    title:String
+    estateId:Long
+    buildingNum:String
+    buildingUnit:String
+    buildingFloorNum:String
+    rent:Int
+    rentMethod:Int
+    paymentMethod:Int
+    houseType:String
+    coveredArea:String
+    useArea:String
+    floor:String
+    orientation:String
+    decoration:Int
+    facilities:String
+    pic:String
+    houseDesc:String
+    contact:String
+    mobile:String
+    time:Int
+    propertyCost:String
+}
+
+type TableResult{
+    list: [HouseResources]
+    pagination:Pagination
+}
+
+type Pagination {
+    current:Int
+    pageSize:Int
+    total:Int
+}
+
+scalar Long

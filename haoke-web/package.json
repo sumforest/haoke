@@ -1,0 +1,30 @@
+{
+  "name": "myhome",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd-mobile": "^2.1.10",
+    "axios": "^0.18.0",
+    "echarts": "^4.1.0",
+    "echarts-for-react": "^2.0.13",
+    "iscroll": "^5.2.0",
+    "iscroll-luo": "^1.2.3",
+    "nuka-carousel": "^4.2.3",
+    "react": "^16.3.2",
+    "react-avatar-editor": "^11.0.4",
+    "react-dom": "^16.3.2",
+    "react-image-gallery": "^0.8.12",
+    "react-responsive-carousel": "^3.1.41",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4",
+    "react-touch-loader": "^1.1.4",
+    "semantic-ui-css": "^2.3.2",
+    "semantic-ui-react": "^0.81.2"
+  },
+  "scripts": {
+    "start": "set PORT=9000 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
