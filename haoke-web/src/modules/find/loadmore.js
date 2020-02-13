@@ -70,8 +70,8 @@ class LoadMore extends React.Component {
   }
   loadData = () => {
     let params = this.props.params;
-    return axios.post(params.url,{
-      type: params.data.type,
+    return axios.get(params.url,{
+      // type: params.data.type,
       pagenum: this.state.currentNum,
       pagesize: this.state.pagesize
     }).then(data=>{

@@ -1,6 +1,5 @@
 package com.sen.haoke.manage.api.graphql;
 
-import com.sen.haoke.manage.api.service.HouseResourcesService;
 import graphql.GraphQL;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.idl.RuntimeWiring;
@@ -11,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-
 import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -27,7 +26,7 @@ public class GraphQLProvider {
 
     private GraphQL graphQL;
 
-   @Autowired
+   @Resource
    private List<MyDataFetcher> myDataFetchers;
 
     /**

@@ -16,25 +16,11 @@
         <module>haoke-manage-house-resources-service</module>
     </modules>
 
-<dependencies>
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <!--需要注意：传递依赖中，如果需要使用，请显示引入-->
-        <optional>true</optional>
-    </dependency>
-    <dependency>
-        <groupId>com.baomidou</groupId>
-        <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>3.0.5</version>
-        <optional>true</optional>
-    </dependency>
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.47</version>
-        <optional>true</optional>
-    </dependency>
-
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.sen</groupId>
+            <artifactId>haoke-manage-dubbo-common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -11,16 +11,23 @@
 
     <artifactId>haoke-manage-api</artifactId>
 
+
     <dependencies>
-        <!--springboot的web支持-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!-- project -->
         <dependency>
             <groupId>com.sen</groupId>
             <artifactId>haoke-manage-house-resources-interface</artifactId>
             <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sen</groupId>
+            <artifactId>haoke-manage-ad-interface</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <!--springboot的web支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!-- aliyunOSS 相关-->
         <dependency>
@@ -45,4 +52,16 @@
             <version>14.0</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.sen.haoke.manage.api.DubboApiApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

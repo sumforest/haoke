@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
+
 /**
  * @Auther: Sen
  * @Date: 2020/2/10 12:53
@@ -19,7 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/pic/upload")
 public class PicUploadController {
 
-    @Autowired
+    @Resource
     private PicUploadService picUploadService;
 
     @PostMapping

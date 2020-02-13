@@ -12,7 +12,7 @@
     <artifactId>haoke-manage-house-resources-service</artifactId>
 
     <dependencies>
-        <!-- 对事物的支持 -->
+        <!-- 对事务的支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -23,4 +23,16 @@
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.sen.haoke.manage.dubbo.server.DubboHouseResourcesProviderApplication</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

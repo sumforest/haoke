@@ -3,9 +3,9 @@ package com.sen.haoke.manage.api.service;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.sen.haoke.manage.api.vo.Pagination;
 import com.sen.haoke.manage.api.vo.TableResult;
-import com.sen.haoke.manage.house.dubbo.server.api.ApiHouseResourcesService;
-import com.sen.haoke.manage.house.dubbo.server.pojo.HouseResources;
-import com.sen.haoke.manage.house.dubbo.server.vo.PageInfo;
+import com.sen.haoke.manage.dubbo.server.api.ApiHouseResourcesService;
+import com.sen.haoke.manage.dubbo.server.pojo.HouseResources;
+import com.sen.haoke.manage.dubbo.server.vo.PageInfo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,5 +30,9 @@ public class HouseResourcesService {
 
     public Object queryHouseResources(Long id) {
         return houseResourcesService.queryHouseResourcesById(id);
+    }
+
+    public boolean updateHouseResources(HouseResources houseResources) {
+        return houseResourcesService.updateHouseResources(houseResources);
     }
 }
