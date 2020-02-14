@@ -34,7 +34,8 @@ public abstract class BaseServiceImpl<T extends BasePojo> {
     }
 
     public int update(T t){
-        return mapper.update(t, null);
+        t.setUpdated(new Date());
+        return mapper.updateById(t);
     }
 
     public int delete(Long id) {

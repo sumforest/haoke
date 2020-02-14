@@ -5,5 +5,12 @@ export async function addHouseResource(params) {
     method: 'POST',
     body: params
   })
+}
+
+export async function updateHouseResource(params) {
+  return request('/haoke/house/resources',{
+    method:'PUT',
+    body:params
+  })
 
 }
