@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-
 import javax.annotation.Resource;
 import java.time.Duration;
 
@@ -22,6 +21,9 @@ import java.time.Duration;
  * @Auther: Sen
  * @Date: 2020/2/15 01:13
  * @Description: 使用代理模式给Get请求获得的数据写入Redis
+ * 触发时机：再@ResponseBody返回前
+ * 不使用拦截器原因：
+ * 拦截器的Response中无法获取数据库的数据
  */
 @ControllerAdvice
 public class MyResponseBodyAdvice implements ResponseBodyAdvice {

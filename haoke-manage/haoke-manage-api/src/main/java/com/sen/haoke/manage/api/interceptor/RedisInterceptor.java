@@ -27,6 +27,10 @@ public class RedisInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //放行跨域请求
+        if (StringUtils.equalsIgnoreCase(request.getMethod(), "OPTIONS")) {
+            return true;
+        }
         if (!StringUtils.equalsIgnoreCase(request.getMethod(), "get")) {
             //放行非get请求
             if (!StringUtils.equalsIgnoreCase(request.getRequestURI(), "/graphql")) {
@@ -43,6 +47,12 @@ public class RedisInterceptor implements HandlerInterceptor {
         //命中响应
         response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
         response.setContentType("application/json;charset=utf-8");
+        // 支持跨域
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type,X-Token");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         response.getWriter().write(result);
         return false;
     }

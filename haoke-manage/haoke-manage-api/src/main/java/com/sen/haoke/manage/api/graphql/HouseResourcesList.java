@@ -3,7 +3,6 @@ package com.sen.haoke.manage.api.graphql;
 import com.sen.haoke.manage.api.service.HouseResourcesService;
 import graphql.schema.DataFetchingEnvironment;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
 
 /**
