@@ -1,5 +1,7 @@
 package com.sen.haoke.im.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +11,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-
 import java.util.Date;
 
 /**
@@ -26,6 +27,8 @@ import java.util.Date;
 public class Message {
 
     @Id
+    //指定次属性使用JackSon序列化称字符串
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
 
     private String msg;

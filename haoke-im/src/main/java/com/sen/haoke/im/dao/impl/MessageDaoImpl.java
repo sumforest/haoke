@@ -44,7 +44,6 @@ public class MessageDaoImpl implements MessageDao {
         //设置分页
         Pageable pageable = PageRequest.of(page - 1, pageSize);
         Query query = Query.query(criteria).with(pageable).with(Sort.by(Sort.Direction.ASC, "send_date"));
-        System.out.println(query);
         return mongoTemplate.find(query, Message.class);
     }
 
@@ -66,6 +65,25 @@ public class MessageDaoImpl implements MessageDao {
             update.set("read_date", new Date());
         }
         return mongoTemplate.updateFirst(query, update, Message.class);
+    }
+
+    @Override
+    public Message findLastedMessage(Long fromId, Long toId) {
+        Criteria aCriteria = new Criteria().andOperator(
+                Criteria.where("from.id").is(fromId),
+                Criteria.where("to.id").is(toId)
+        );
+        Criteria bCriteria = new Criteria().andOperator(
+                Criteria.where("from.id").is(toId),
+                Criteria.where("to.id").is(fromId)
+        );
+        Query query = Query.query(new Criteria().orOperator(aCriteria, bCriteria)).with(Sort.by(Sort.Direction.DESC, "send_date")).limit(1);
+        List<Message> messages = mongoTemplate.find(query, Message.class);
+        Message message = null;
+        if (messages.size() > 0) {
+            message = messages.get(0);
+        }
+        return message;
     }
 
     @Override

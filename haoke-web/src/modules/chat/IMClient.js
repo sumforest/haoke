@@ -5,12 +5,13 @@ import IMEvent from "./IMEvent.js"
  * 通讯客户端
  */
 class IMClient {
-  constructor(url) {
+  constructor(url,handleMsg) {
       this._url = url;
       this._autoConnect = true;
       this._handlers = {};
       this._DataPacketQueue = [];
       this._isOpened = false;
+      this.onMessage = handleMsg;
 
       this.addEventListener(IMEvent.CONNECTED, () => {
         this.serverOnConnected();
@@ -33,7 +34,11 @@ class IMClient {
       this._socket = new WebSocket(this._url);
 
       this._socket.onmessage = (evt) => {
-        this.onMessage(evt.data);
+        // this.onMessage(evt.data);
+        //接收消息
+        if (this.onMessage) {
+          this.onMessage(evt.data);
+        }
       }
       this._socket.onopen = (ws) => {
         this.onOpen(ws);
@@ -47,12 +52,12 @@ class IMClient {
     }
   }
 
-  // 消息接收
-  onMessage(message) {
-    if (typeof message === "string") {
-      this.dispatchMessage(message);
-    }
-  }
+  // // 消息接收
+  // onMessage(message) {
+  //   if (typeof message === "string") {
+  //     this.dispatchMessage(message);
+  //   }
+  // }
 
   // 打开回调
   onOpen() {
@@ -82,11 +87,13 @@ class IMClient {
 
   // 向服务器发送数据包
   sendDataPacket(dataPacket) {
-    if (this._isOpened) {
-      this._socket.send(dataPacket.rawMessage);
-    } else {
-      this._DataPacketQueue.push(dataPacket);
-    }
+    // if (this._isOpened) {
+    //   this._socket.send(dataPacket.rawMessage);
+    // } else {
+    //   this._DataPacketQueue.push(dataPacket);
+    // }
+    //不包装，直接发送
+    this._socket.send(dataPacket);
   }
 
   /**

@@ -40,9 +40,9 @@ class Chat extends React.Component {
     this.setState({isShow:false});
   }
   componentDidMount = () => {
-    axios.post('/chats/list').then((data)=>{
+    axios.get('http://127.0.0.1:18081/user?fromId=1001').then((data)=>{
       this.setState({
-        list: data.data.list,
+        list: data,
         isLoading: true
       })
     })
@@ -55,10 +55,10 @@ class Chat extends React.Component {
         return (
           <li key={item.id} onClick={(e) => this.toChat(e,{item})}>
             <div className="avarter">
-              <img src={config.imgBaseUrl + item.avatar} alt="avarter"/>
+              <img src={item.avatar} alt="avarter"/>
               <span className="name">{item.username}</span>
               <span className="info">{item.chat_msg}</span>
-              <span className="time">{item.ctime}</span>
+              <span className="time">{item.chat_time}</span>
             </div>
           </li>
         )

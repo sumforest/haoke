@@ -39,6 +39,14 @@ public interface MessageDao {
      */
     UpdateResult updateMessageStatus(ObjectId id, Integer status);
 
+    /**
+     * 查找最新发送的消息
+     * @param fromId 发送用户id
+     * @param toId 接收用户id
+     * @return
+     */
+    Message findLastedMessage(Long fromId, Long toId);
+
     Message save(Message message);
 
     DeleteResult deleteMessage(ObjectId id);
