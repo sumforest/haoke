@@ -1,6 +1,5 @@
 package com.sen.haoke.im.controller;
 
-import com.sen.haoke.im.dao.MessageDao;
 import com.sen.haoke.im.pojo.Message;
 import com.sen.haoke.im.service.MessageService;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import java.util.List;
 
