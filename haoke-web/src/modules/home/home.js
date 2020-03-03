@@ -11,10 +11,10 @@ import MapHouse from './maphouse.js';
 import Calculator from './calc.js';
 import SearchBar from './searchbar.js';
 import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
+import {gql} from "apollo-boost";
 
 const client = new ApolloClient({
-    uri: 'http://127.0.0.1:18080/graphql',
+    uri: 'http://api.manage.haoke.com/graphql',
 });
 
 //定义查询
@@ -44,7 +44,11 @@ class Home extends React.Component {
             globalLoading: true,
             mapShowFlag: false,
             calcShowFlag: false,
-            searchBarFlag: false
+            searchBarFlag: false,
+            searchData: [],
+            totalPage: 0,
+            keyword: '',
+            hotWord: ""
         };
     }
 
@@ -76,22 +80,22 @@ class Home extends React.Component {
         });
 
         let menu = new Promise((resolve, reject) => {
-            axios.get('http://127.0.0.1:18080/mock/index/menu').then((data) => {
+            axios.get('http://api.manage.haoke.com/mock/index/menu').then((data) => {
                 resolve(data.data.list);
             });
         })
         let info = new Promise((resolve, reject) => {
-            axios.get('http://127.0.0.1:18080/mock/index/info').then((data) => {
+            axios.get('http://api.manage.haoke.com/mock/index/info').then((data) => {
                 resolve(data.data.list);
             });
         })
         let faq = new Promise((resolve, reject) => {
-            axios.get('http://127.0.0.1:18080/mock/index/faq').then((data) => {
+            axios.get('http://api.manage.haoke.com/mock/index/faq').then((data) => {
                 resolve(data.data.list);
             });
         })
         let house = new Promise((resolve, reject) => {
-            axios.get('http://127.0.0.1:18080/mock/index/house').then((data) => {
+            axios.get('http://api.manage.haoke.com/mock/index/house').then((data) => {
                 resolve(data.data.list);
             });
         })
@@ -150,6 +154,21 @@ class Home extends React.Component {
                 break;
         }
     }
+    search = (event, data) => {
+        let value = data.value ;
+        let page = data.page ? data.page : 1;
+        let _this = this;
+        _this.searchHandle();
+        this.setState({keyword: value})
+        axios.get('http://api.manage.haoke.com/search?keyword=' + value + '&page=' + page).then((data) => {
+            _this.setState({
+                searchData: data.list,
+                totalPage: data.totalPage,
+                hotWord: data.hotWord
+            });
+        });
+    }
+
     searchHandle = () => {
         this.setState({
             searchBarFlag: true
@@ -260,13 +279,13 @@ class Home extends React.Component {
             <div className='home-container'>
                 {this.state.mapShowFlag ? <MapHouse hideMap={this.hideMap}/> : null}
                 {this.state.calcShowFlag ? <Calculator hideCalc={this.hideCalc}/> : null}
-                {this.state.searchBarFlag ? <SearchBar hideSearchBar={this.hideSearchBar}/> : null}
+                {this.state.searchBarFlag ? <SearchBar totalPage={this.state.totalPage} hideSearchBar={this.hideSearchBar} hotWord={this.state.hotWord} searchPage={this.search} searchData={this.state.searchData}/> : null}
                 <Dimmer inverted active={this.state.globalLoading} page>
                     <Loader>Loading</Loader>
                 </Dimmer>
+                {/*onBlur={this.hideSearchBar} onFocus={this.searchHandle}*/}
                 <div className="home-topbar">
-                    <Input onBlur={this.hideSearchBar} onFocus={this.searchHandle} fluid
-                           icon={{name: 'search', circular: true, link: true}} placeholder='搜房源...'/>
+                    <Input onChange={this.search.bind(this)} fluid value={this.state.keyword} icon={{name: 'search', circular: true, link: true}} placeholder='搜房源...'/>
                 </div>
                 <div className="home-content">
                     {swipe}

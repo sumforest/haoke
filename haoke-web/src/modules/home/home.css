@@ -244,6 +244,7 @@
   height: 100%;
   width: 100%;
   background-color: #fff;
+  overflow-y: auto; /**这里做了修改，y轴方向有滚动条**/
 }
 .house-list {
   position: fixed;

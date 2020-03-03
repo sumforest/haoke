@@ -15,7 +15,6 @@
         <module>haoke-manage-house-resources</module>
         <module>haoke-manage-dubbo-common</module>
         <module>haoke-manage-ad</module>
-        <module>haoke-manage-ad</module>
     </modules>
 
     <dependencies>

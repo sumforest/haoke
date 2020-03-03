@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.414cf67e.css",
-  "main.css.map": "static/css/main.414cf67e.css.map",
-  "main.js": "static/js/main.61e3988d.js",
-  "main.js.map": "static/js/main.61e3988d.js.map",
+  "main.css": "static/css/main.522e0dc1.css",
+  "main.css.map": "static/css/main.522e0dc1.css.map",
+  "main.js": "static/js/main.7c942441.js",
+  "main.js.map": "static/js/main.7c942441.js.map",
   "static\\media\\brand-icons.eot": "static/media/brand-icons.13db00b7.eot",
   "static\\media\\brand-icons.svg": "static/media/brand-icons.a1a749e8.svg",
   "static\\media\\brand-icons.ttf": "static/media/brand-icons.c5ebe0b3.ttf",
@@ -22,5 +22,5 @@
   "static\\media\\outline-icons.ttf": "static/media/outline-icons.ad97afd3.ttf",
   "static\\media\\outline-icons.woff": "static/media/outline-icons.ef60a4f6.woff",
   "static\\media\\outline-icons.woff2": "static/media/outline-icons.cd6c777f.woff2",
-  "static\\media\\touch-loader.less": "static/media/touch-loader.a6aed36a.less"
+  "static\\media\\style.less": "static/media/style.0c7d4df6.less"
 }

@@ -15,7 +15,6 @@
     <modules>
         <module>haoke-manage-api</module>
         <module>haoke-manage-dubbo-server</module>
-        <module>haoke-manage-ad-interface</module>
     </modules>
 
     <dependencies>

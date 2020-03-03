@@ -6,15 +6,22 @@ import graphql.schema.idl.RuntimeWiring;
 import graphql.schema.idl.SchemaGenerator;
 import graphql.schema.idl.SchemaParser;
 import graphql.schema.idl.TypeDefinitionRegistry;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Auther: Sen
@@ -37,8 +44,10 @@ public class GraphQLProvider {
         //初始化graphql文件
         File file = null;
         try {
-             file = ResourceUtils.getFile("classpath:haoke.graphql");
-            TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(file);
+            InputStream resource = GraphQLProvider.class.getClassLoader().getResourceAsStream("haoke.graphql");
+            // file = ResourceUtils.getFile("classpath:haoke.graphql");
+            String graphqlStr = IOUtils.toString(Objects.requireNonNull(resource), StandardCharsets.UTF_8);
+            TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(graphqlStr);
             //查询
             RuntimeWiring wiring = RuntimeWiring.newRuntimeWiring()
                     .type("HaokeQuery", builder->
@@ -56,7 +65,7 @@ public class GraphQLProvider {
                     .build();
             GraphQLSchema graphQLSchema = new SchemaGenerator().makeExecutableSchema(typeRegistry, wiring);
             this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

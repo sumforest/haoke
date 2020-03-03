@@ -15,7 +15,7 @@ const GET_HOUSE_DATA = gql`
 `;
 
 const client = new ApolloClient({
-    uri: "http://127.0.0.1:18080/graphql"
+    uri: "api.manage.haoke.com/graphql"
 });
 
 // 百度地图API功能

@@ -1,0 +1,9 @@
+.house-title{
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.house-title em {
+    font-style: normal;
+    color: red;
+}

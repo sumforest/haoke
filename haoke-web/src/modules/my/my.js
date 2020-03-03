@@ -139,7 +139,7 @@ class My extends React.Component {
     };
   }
   componentWillMount = () => {
-    axios.get('http://127.0.0.1:18080/mock/my/info',{
+    axios.get('api.manage.haoke.com/mock/my/info',{
       user_id: localStorage.getItem('uid')
     }).then(ret=>{
       this.setState({

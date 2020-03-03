@@ -7,7 +7,7 @@ import ApolloClient from 'apollo-boost';
 import {gql} from 'apollo-boost';
 
 const client = new ApolloClient({
-    uri: 'http://127.0.0.1:18080/graphql'
+    uri: 'api.manage.haoke.com/graphql'
 });
 
 const QUERY_LIST = gql`

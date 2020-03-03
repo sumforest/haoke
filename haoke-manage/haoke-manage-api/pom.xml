@@ -77,6 +77,11 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>3.9.1</version>
         </dependency>
+        <!-- ElasticSearch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
