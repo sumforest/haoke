@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
-
 import javax.annotation.Resource;
 
 /**
@@ -24,8 +23,11 @@ public class WebSocketConfiguration implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        //配置websocket路径和参数
         registry.addHandler(myHandler, "/ws/{uid}")
+                //配置跨域
                 .setAllowedOrigins("*")
+                //配置拦截器
                 .addInterceptors(webSocketInterceptor);
     }
 }

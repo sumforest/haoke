@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 /**
  * @Auther: Sen
  * @Date: 2020/2/13 21:48
- * @Description:
+ * @Description: 服务端提供mock数据给客户端
  */
 @RestController
 @CrossOrigin

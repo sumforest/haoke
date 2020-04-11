@@ -11,7 +11,16 @@ import org.springframework.stereotype.Component;
 @Component
 public interface MyDataFetcher {
 
+    /**
+     * 获取GraphQL操作名
+     * @return String
+     */
     String fileName();
 
+    /**
+     * 返回结果映射封装对象返回
+     * @param environment 查询参数
+     * @return 查询结果
+     */
     Object dataFetcher(DataFetchingEnvironment environment);
 }

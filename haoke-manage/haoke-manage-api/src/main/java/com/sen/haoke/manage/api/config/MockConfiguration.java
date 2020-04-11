@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 /**
  * @Auther: Sen
  * @Date: 2020/2/13 21:45
- * @Description:
+ * @Description: @PropertySource注解实现配置文件与{@link MockConfiguration}属性的自动映射
  */
 @Configuration
 @PropertySource("classpath:mock-data.properties")

@@ -17,7 +17,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     private RedisInterceptor redisInterceptor;
 
     /**
-     * 注册自定义拦截器到Spring拦截器链中
+     * 注册自定义{@link RedisInterceptor}拦截器到Spring拦截器链中
      * @param registry
      */
     @Override

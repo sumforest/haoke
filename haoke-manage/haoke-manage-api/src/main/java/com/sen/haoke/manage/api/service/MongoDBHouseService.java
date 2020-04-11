@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,7 +17,7 @@ import java.util.Map;
 /**
  * @Auther: Sen
  * @Date: 2020/2/22 01:25
- * @Description:
+ * @Description: MongDB实现地图找房
  */
 @Service
 public class MongoDBHouseService {
@@ -57,7 +56,7 @@ public class MongoDBHouseService {
      * @param lng  经度
      * @param lat  纬度
      * @param zoom 缩放等级
-     * @return
+     * @return 搜索到的房源
      */
     public MapHouseDataResult queryHouseDataByMap(Float lng, Float lat, Integer zoom) {
         //默认查找范围是比例尺的1.5倍距离查找，除以111.12-->地球1°代表111.12km

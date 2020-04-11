@@ -36,10 +36,11 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice {
      *
      * @param returnType
      * @param converterType
-     * @return 返回true执行 beforeBodyWrite()
+     * @return 返回true执行 beforeBodyWrite() 实现增强
      */
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
+        // Controller中get请求结果全部缓存
         if (returnType.hasMethodAnnotation(GetMapping.class)) {
             return true;
         }

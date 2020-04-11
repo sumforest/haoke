@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * @Auther: Sen
  * @Date: 2020/2/25 21:19
- * @Description:
+ * @Description: 实现微信登录
  */
 @RestController
 @RequestMapping("wx")

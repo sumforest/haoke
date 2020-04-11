@@ -12,6 +12,7 @@ import java.io.IOException;
  * @Auther: Sen
  * @Date: 2020/2/15 00:18
  * @Description: 替换Request为包装后的Request
+ * {@link OncePerRequestFilter}一个请求，该类只会拦截一次
  */
 @Component
 public class RequestReplaceFilter  extends OncePerRequestFilter {

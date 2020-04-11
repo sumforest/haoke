@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @Auther: Sen
  * @Date: 2020/2/17 23:08
- * @Description:
+ * @Description: 微聊控制中心
  */
 @RestController
 @RequestMapping("message")

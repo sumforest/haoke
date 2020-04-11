@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * @Auther: Sen
  * @Date: 2020/2/14 22:59
- * @Description:
+ * @Description: 查询缓存拦截器
  */
 @Component
 public class RedisInterceptor implements HandlerInterceptor {
@@ -53,6 +53,7 @@ public class RedisInterceptor implements HandlerInterceptor {
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Headers", "Content-Type,X-Token");
         response.setHeader("Access-Control-Allow-Credentials", "true");
+        //缓存内容放入Response中
         response.getWriter().write(result);
         return false;
     }

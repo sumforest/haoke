@@ -26,15 +26,18 @@ import java.util.Objects;
 /**
  * @Auther: Sen
  * @Date: 2020/2/11 22:59
- * @Description:
+ * @Description: 初始化GraphQL对象并注入Spring IOC容器中
  */
 @Component
 public class GraphQLProvider {
 
     private GraphQL graphQL;
 
-   @Resource
-   private List<MyDataFetcher> myDataFetchers;
+    /**
+     * spring注入所有MyDataFetcher的实现类到集合中
+     */
+    @Resource
+    private List<MyDataFetcher> myDataFetchers;
 
     /**
      * Spring初始化后初始化GraphQL对象
@@ -42,27 +45,30 @@ public class GraphQLProvider {
     @PostConstruct
     public void init() {
         //初始化graphql文件
-        File file = null;
+        //File file = null;
         try {
+            //读取GraphQL文件
             InputStream resource = GraphQLProvider.class.getClassLoader().getResourceAsStream("haoke.graphql");
             // file = ResourceUtils.getFile("classpath:haoke.graphql");
             String graphqlStr = IOUtils.toString(Objects.requireNonNull(resource), StandardCharsets.UTF_8);
             TypeDefinitionRegistry typeRegistry = new SchemaParser().parse(graphqlStr);
-            //查询
+
+            //确定与GraphQL文件操作返回值对象映射
             RuntimeWiring wiring = RuntimeWiring.newRuntimeWiring()
-                    .type("HaokeQuery", builder->
+                    .type("HaokeQuery", builder ->
                             {
                                 myDataFetchers.forEach(myDataFetcher -> {
                                     builder.dataFetcher(myDataFetcher.fileName(), myDataFetcher::dataFetcher);
                                 });
                                 return builder;
                             }
-                        //     builder.dataFetcher("HouseResources", param->{
-                        //     Long id = param.getArgument("id");
-                        //     return service.queryHouseResources(id);
-                        // })
+                            //     builder.dataFetcher("HouseResources", param->{
+                            //     Long id = param.getArgument("id");
+                            //     return service.queryHouseResources(id);
+                            // })
                     )
                     .build();
+            //创建Schema
             GraphQLSchema graphQLSchema = new SchemaGenerator().makeExecutableSchema(typeRegistry, wiring);
             this.graphQL = GraphQL.newGraphQL(graphQLSchema).build();
         } catch (IOException e) {
@@ -72,10 +78,11 @@ public class GraphQLProvider {
 
     /**
      * 把graphQL交给Spring容器托管
+     *
      * @return
      */
     @Bean
-    public GraphQL graphQL(){
+    public GraphQL graphQL() {
         return this.graphQL;
     }
 }

@@ -90,7 +90,7 @@ public class MyHandler extends TextWebSocketHandler implements RocketMQListener<
             //把MongoDB的消息状态更新为已读
             messageDao.updateMessageStatus(target.getId(), 2);
         }else{
-            //当前的额Session不在当前JVM或者Session不在线,发送消息到MQ
+            //当前的Session不在当前JVM或者Session不在线,发送消息到MQ
             rocketMQTemplate.convertAndSend("haoke-im-send-message:SEND_MSG", msgJson);
         }
     }
@@ -103,6 +103,10 @@ public class MyHandler extends TextWebSocketHandler implements RocketMQListener<
         LONG_WEB_SOCKET_SESSION_MAP.remove(uid);
     }
 
+    /**
+     * RocketMQ接收消息接口实现
+     * @param message RocketMQ消息
+     */
     @Override
     public void onMessage(String message) {
         //获取uid

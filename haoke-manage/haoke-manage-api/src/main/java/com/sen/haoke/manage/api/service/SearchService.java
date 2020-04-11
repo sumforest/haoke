@@ -19,7 +19,6 @@ import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPa
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +28,7 @@ import java.util.Map;
 /**
  * @Auther: Sen
  * @Date: 2020/2/28 15:38
- * @Description:
+ * @Description: ElasticSearch实现搜索功能
  */
 @Service
 public class SearchService {

@@ -22,6 +22,7 @@ import java.util.UUID;
 public class PicUploadService {
     // 允许上传的格式
     private static final String[] IMAGE_TYPE = new String[]{".bmp", ".jpg", ".jpeg", ".gif", ".png"};
+
     @Resource
     private OSSClient ossClient;
 

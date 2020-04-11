@@ -27,12 +27,13 @@ const getValue = obj =>
     .join(',');
 //支付方式
 const payType = new Map([
-  [1,'付一押一'],
-  [2,'付三押一'],
-  [3,'付六押一'],
-  [4,'年付押一'],
-  [5,'其它'],
+  [1, '付一押一'],
+  [2, '付三押一'],
+  [3, '付六押一'],
+  [4, '年付押一'],
+  [5, '其它'],
 ]);
+
 /* eslint react/no-multi-comp:0 */
 @connect(({houseResource, loading}) => ({
   houseResource,
@@ -61,7 +62,7 @@ class Resource extends PureComponent {
     {
       title: '图',
       dataIndex: 'pic',
-      render : (text, record, index) => {
+      render: (text, record, index) => {
         return <ShowPics pics={text}/>
       }
 
@@ -106,8 +107,9 @@ class Resource extends PureComponent {
       ),
     }
   ];
-  reload(){
-    const { dispatch } = this.props;
+
+  reload() {
+    const {dispatch} = this.props;
     dispatch({
       type: 'houseResource/fetch'
     });

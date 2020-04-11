@@ -27,7 +27,7 @@ import java.util.Date;
 public class Message {
 
     @Id
-    //指定次属性使用JackSon序列化称字符串
+    //指定属性使用JackSon序列化称字符串
     @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
 
