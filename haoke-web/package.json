@@ -19,7 +19,7 @@
     "react-image-gallery": "^0.8.12",
     "react-responsive-carousel": "^3.1.41",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "5.0.1",
     "react-touch-loader": "^1.1.4",
     "semantic-ui-css": "^2.3.2",
     "semantic-ui-react": "^0.81.2"
